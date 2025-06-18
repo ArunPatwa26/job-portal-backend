@@ -5,7 +5,7 @@ import dotenv from 'dotenv';
 import cloudinary from './config/cloudinary.js';
 import userRoutes from './routes/userRoutes.js';
 import jobRoutes from './routes/jobRoutes.js';
-import jobApplicants from "./routes/applicantsRoutes.js"
+import jobApplicants from "./routes/applicantsRoutes.js";
 import path from 'path';
 
 dotenv.config();
@@ -13,6 +13,11 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+
+// ✅ Default API
+app.get('/', (req, res) => {
+  res.send('Welcome to Job Portal Backend 🚀');
+});
 
 // Routes
 app.use('/api/users', userRoutes);
